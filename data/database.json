@@ -4,9 +4,9 @@
         "title": "Jungle Cruise",
         "genre": "Adventure",
         "director": "Jaume Collet-Serra",
-        "year": "2021",
+        "year": 2021,
         "imageURL": "/static/img/jungle-cruise.jpeg",
-        "rating": "6.6",
+        "rating": 3,
         "description"  : "Dreaming about saving countless lives and having another adventure, the feisty English feminist and doctor of botany, Dr Lily Houghton, embarks on a peril-laden mission to change the world. Along with her fashionable brother, MacGregor, Dr Houghton enlists the help of the arrogant, wisecracking riverboat skipper, Captain Frank Wolff, to guide them through the serpentine Amazon River in La Quila, his swift wooden boat. Now, as the intrepid trio ventures deeper and deeper into the heart of an impenetrable green maze, searching for something that cannot be found, a centuries-old curse and the ruthless aristocrat, Prince Joachim, threaten to put an end to their ambitious plans."
     },
     {
@@ -14,9 +14,9 @@
         "title": "The Little Mermaid",
         "genre": "Fantasy",
         "director": "Rob Marshall",
-        "year": "2023",
+        "year": 2023,
         "imageURL": "/static/img/the-little-mermaid.jpg",
-        "rating": "7.0",
+        "rating": 3,
         "description"  : "The youngest of King Triton's daughters, Ariel is a beautiful and spirited young mermaid with a thirst for adventure. Longing to find out more about the world beyond the sea, Ariel visits the surface and falls for the dashing Prince Eric. Following her heart, she makes a deal with the evil sea witch, Ursula, to experience life on land."
     },
     {
@@ -24,7 +24,20 @@
         "title": "Home Alone",
         "genre": "Comedy",
         "director": "Chris Columbus",
-        "year": "1990",
+        "year": 1990,
         "imageURL": "/static/img/home-alone.jpeg",
-        "rating": "7.7",
-        "description"  : "It is Christmas time and the McCallister family is preparing for a vacation in Paris, France. But the youngest in the family, Kevin (Macaulay Culkin), got into a scuffle with his older brother Buzz (Devin Ratray) and was sent to his room, which is on the third floor of his house. Then, the next morning, while the rest of the family was in a rush to make it to the airport on time, they completely forgot about Kevin, who now has the house all to himself. Being home alone was fun for Kevin, having a pizza all to himself, jumping on his parents' bed, and making a mess. Then, Kevin disc
+        "rating": 4,
+        "description"  : "It is Christmas time and the McCallister family is preparing for a vacation in Paris, France. But the youngest in the family, Kevin (Macaulay Culkin), got into a scuffle with his older brother Buzz (Devin Ratray) and was sent to his room, which is on the third floor of his house. Then, the next morning, while the rest of the family was in a rush to make it to the airport on time, they completely forgot about Kevin, who now has the house all to himself. Being home alone was fun for Kevin, having a pizza all to himself, jumping on his parents' bed, and making a mess. Then, Kevin discovers about two burglars, Harry (Joe Pesci) and Marv (Daniel Stern), about to rob his house on Christmas Eve. Kevin acts quickly by wiring his own house with makeshift booby traps to stop the burglars and to bring them to justice."
+    },
+    {
+        "id" : "4",
+        "title": "Dune",
+        "genre": "Sci-Fi",
+        "director": "Denis Villeneuve",
+        "year": 2021,
+        "imageURL": "/static/img/dune.jpeg",
+        "rating": 4,
+        "description"  : "A mythic and emotionally charged hero's journey, \"Dune\" tells the story of Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding. He must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet's exclusive supply of the most precious resource in existence—a commodity capable of unlocking humanity's greatest potential—only those who can conquer their fear will survive."
+    }
+    
+]
