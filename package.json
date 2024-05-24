@@ -1,0 +1,20 @@
+{
+  "name": "softuni-workshop-movie-magic",
+  "version": "1.0.0",
+  "description": "This is a repository where I will be creating a website that will attract movie enthusiasts. It is part of my training in Software University.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "debug" : "nodemon ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
