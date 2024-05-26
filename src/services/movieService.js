@@ -43,6 +43,25 @@ async function getMovieById(id){
     return movie ? toMovieModel(movie) : movie;
 }
 
+async function createMovie(movieData){
+    const id = uuid();
+
+    const movie = {
+        id,
+        title: movieData.title,
+        genre: movieData.genre,
+        director: movieData.director,
+        year: movieData.year,
+        imageURL: movieData.imageURL,
+       rating: movieData.rating,
+    description: movieData.description
+    };
+}
+
+function uuid(){
+    return 'xxxx-xxxx'.replace(/x/g, () => Math.random() * 16 | 0).toString(16);
+}
+
 module.exports = {
     getAllMovies,
     getMovieById
