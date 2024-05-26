@@ -51,11 +51,17 @@ async function createMovie(movieData){
         title: movieData.title,
         genre: movieData.genre,
         director: movieData.director,
-        year: movieData.year,
+        year: Number(movieData.year),
         imageURL: movieData.imageURL,
-       rating: movieData.rating,
+       rating: Number(movieData.rating),
     description: movieData.description
     };
+
+    const movies = await readFile();
+    movies.push(movie);
+    await writeFile(movies);
+
+    return toMovieModel(movie);
 }
 
 function uuid(){
@@ -64,5 +70,6 @@ function uuid(){
 
 module.exports = {
     getAllMovies,
-    getMovieById
+    getMovieById,
+    createMovie
 }
