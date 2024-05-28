@@ -18,7 +18,32 @@ module.exports = {
 
         res.render('details', {movie});
     },
-    search: (req, res) =>{
-        res.render('search');
+    search: async(req, res, url) =>{
+        const urlParams = new URLSearchParams(req.query);
+        const search = Object.fromEntries(urlParams);
+        const [title, genre, year] = Object.values(search);
+
+        if(!title && !genre && !year){
+            res.render('search', {error : true});
+            return;
+        }
+
+        const movies = await getAllMovies();
+
+        let matches = movies;
+
+    if (title) {
+        matches = matches.filter(movie => movie.title.toLowerCase().includes(title.toLowerCase()));
+    }
+
+    if (genre) {
+        matches = matches.filter(movie => movie.genre.toLowerCase().includes(genre.toLowerCase()));
+    }
+
+    if (year) {
+        matches = matches.filter(movie => movie.year == year);
+    }
+
+    res.render('search', { movies: matches });
     }
 }

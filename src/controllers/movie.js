@@ -15,7 +15,7 @@ module.exports = {
         description: !req.body.description
         };
 
-        console.log(errors);
+        // console.log(errors);
 
         if(Object.values(errors).includes(true)){
             res.render('create', {movie : req.body, errors});
