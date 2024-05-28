@@ -18,7 +18,7 @@ module.exports = {
 
         res.render('details', {movie});
     },
-    search: async(req, res, url) =>{
+    search: async(req, res) =>{
         const urlParams = new URLSearchParams(req.query);
         const search = Object.fromEntries(urlParams);
         const [title, genre, year] = Object.values(search);
