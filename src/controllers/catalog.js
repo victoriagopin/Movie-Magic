@@ -1,7 +1,10 @@
 const { getAllMovies, getMovieById } = require("../services/movieService");
 
+const jwt = require('jsonwebtoken');
+
 module.exports = {
     home: async(req, res) => {
+
         const movies = await getAllMovies();
 
         res.render('home', {movies});

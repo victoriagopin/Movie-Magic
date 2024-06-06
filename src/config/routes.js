@@ -5,6 +5,7 @@ const { createGet,createPost } = require('../controllers/movie');
 const {createGet: createCastGet, createPost: createCastPost} = require('../controllers/cast');
 const { notFound } = require('../controllers/404');
 const { attachGet, attachPost } = require('../controllers/attach');
+const { registerGet, registerPost } = require('../controllers/user');
 
 const router = Router();
 
@@ -18,6 +19,8 @@ router.post('/create/movie', createPost);
 router.post('/create/movie', createPost);
 router.get('/create/cast', createCastGet);
 router.post('/create/cast', createCastPost);
+router.get('/register', registerGet);
+router.post('/register', registerPost);
 
 router.get('/search', search);
 
