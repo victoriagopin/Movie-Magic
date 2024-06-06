@@ -14,7 +14,8 @@ function createToken(user){
 }
 
 function verifyToken(token){
-
+    const payload = jwt.verify(token, secret);
+    return payload;
 }
 
 module.exports = {
