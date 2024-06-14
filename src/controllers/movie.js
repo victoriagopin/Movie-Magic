@@ -1,15 +1,21 @@
 const {Router} = require('express');
+const {body, validationResult} = require('express-validator');
+
 const { createMovie, getMovieById, updateMovie, deleteMovie } = require("../services/movieService");
 const {isUser} = require('../middlewares/guards');
-const { parseError } = require('../util');
+const { parseError } = require('../util.js');
 
 const movieRouter = Router();
 
 movieRouter.get('/create/movie', isUser(),(req, res) => {
     res.render('create');
 });
-movieRouter.post('/create/movie', isUser(), async(req, res) => {
-    const authorId = req.user._id;
+movieRouter.post(
+    '/create/movie',
+     isUser(),
+     body('imageURL').trim().isURL().withMessage('Please enter a avalid URL for movie poster'),
+    async(req, res) => {
+        const authorId = req.user._id;
 
     // const errors = {
     //     title: !req.body.title,
@@ -29,8 +35,8 @@ movieRouter.post('/create/movie', isUser(), async(req, res) => {
     // }
 
     try{
-    const result = await createMovie(req.body, authorId);
-    res.redirect('/details/' + result._id);
+        const result = await createMovie(req.body, authorId);
+        res.redirect('/details/' + result._id);
     } catch (err){
         res.render('create', {movie : req.body, errors: parseError(err).errors});
     }

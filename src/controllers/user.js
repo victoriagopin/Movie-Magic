@@ -1,9 +1,10 @@
 const {Router} = require('express');
 const {body, validationResult} = require('express-validator');
+
 const { createToken } = require('../services/token');
 const {register, login} = require('../services/user');
 const {isGuest} = require('../middlewares/guards');
-const { parseError } = require('../util');
+const { parseError } = require('../util.js');
 
 const userRouter = Router();
 
@@ -13,32 +14,31 @@ userRouter.get('/register', isGuest(),(req,res) => {
 userRouter.post(
     '/register', 
     isGuest(),
-    body('email').trim().isEmail().withMessage('Please enter a valid email!'),
-    body('password').trim().isAlphanumeric().isLength({min:6}).withMessage('Password must be al least 6 characters long and can contain only English letters and numbers!'),
-    body('repass').trim().custom((value, {req}) => value == req.body.password).withMessage('Passwords dont\'t match!'),
+    body('email').trim().isEmail().withMessage('Please enter a valid email'),
+    body('password').trim().isAlphanumeric().isLength({min:6}).withMessage('Password must be al least 6 characters long and can contain only English letters and numbers'),
+    body('repass').trim().custom((value, {req}) => value == req.body.password).withMessage('Passwords dont\'t match'),
     async (req,res) =>{
-    const {email, password} = req.body;
+        const {email, password} = req.body;
     
-    try{
-        const result = validationResult(req);
+        try{
+            const result = validationResult(req);
 
-        if(result.errors.length){
-            throw result.errors;
+            if(result.errors.length){
+                throw result.errors;
+            }
+
+            const user = await register(email, password);
+            const token = createToken(user);
+
+            res.cookie('token', token, {httpOnly: true});
+
+            res.redirect('/');
+        } catch (err){
+            console.log(Object.values(parseError(err)));
+            res.render('register', {data: {email}, errors : parseError(err)});
+            return;
         }
-
-        const user = await register(email, password);
-        const token = createToken(user);
-
-        res.cookie('token', token, {httpOnly: true});
-
-        res.redirect('/');
-    } catch (err){
-        parseError(err);
-        console.log(err);
-        res.render('register', {data: {email}, errors : parseError(err).errors});
-        return;
     }
-}
 );
 
 userRouter.get('/login', isGuest(),(req, res) => {
