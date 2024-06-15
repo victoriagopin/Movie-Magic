@@ -34,8 +34,7 @@ userRouter.post(
 
             res.redirect('/');
         } catch (err){
-            console.log(Object.values(parseError(err)));
-            res.render('register', {data: {email}, errors : parseError(err)});
+            res.render('register', {data: {email}, errors : parseError(err).errors});
             return;
         }
     }
@@ -47,19 +46,22 @@ userRouter.get('/login', isGuest(),(req, res) => {
 userRouter.post('/login', isGuest(),async (req, res) => {
     const {email, password} = req.body;
     
-    try{
-        if(!email || !password){
-            throw new Error('All fileds are required!');
+
+    try {
+        const result = validationResult(req);
+
+        if (result.errors.length) {
+            throw result.errors;
         }
 
         const user = await login(email, password);
         const token = createToken(user);
 
-        res.cookie('token', token, {httpOnly: true});
-
+        res.cookie('token', token, { httpOnly: true });
         res.redirect('/');
-    } catch (err){
-        res.render('login', {data: {email}, error : err.message});
+    } catch (err) {
+        console.log(parseError(err).errors);
+        res.render('login', { data: { email }, errors: parseError(err).errors });
         return;
     }
 });

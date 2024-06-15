@@ -1,6 +1,8 @@
-{{#if error}}
+{{#if errors}}
     <div class="error-container">
-        <p class="error">{{error}}</p>
+        {{#each errors}}
+        <p class="error">{{this}}</p>
+        {{/each}}
     </div>
 {{/if}}
 
