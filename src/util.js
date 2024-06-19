@@ -7,7 +7,7 @@ function parseError(err){
             //Mongoose validation error
             const error = new Error('Input validation error');
             console.log(err);
-             error.erorrs = Object.fromEntries(Object.values(err.errors).map(e =>[e.path, e.message]));
+             error.errors = Object.fromEntries(Object.values(err.errors).map(e =>[e.path, e.message]));
       
              return error;
             
