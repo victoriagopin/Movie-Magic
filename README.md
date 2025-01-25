@@ -6,8 +6,8 @@ Movie Magic is an application created using Express Handlebars, designed for mov
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/victoriagopin/SoftUni-Workshop-Movie-Magic.git
-   cd SoftUni-Workshop-Movie-Magic
+   git clone https://github.com/victoriagopin/Movie-Magic.git
+   cd Movie-Magic
 2. Install dependencies:
    ```bash
    npm install
