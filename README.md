@@ -28,3 +28,10 @@ Movie Magic is an application created using Express Handlebars, designed for mov
 - **Registered users have extended functionality that allows them to:**
   - Create new movies on the platform
   - Add the cast to the movies they create
+
+## Images
+
+![Home Page](static/img/demo-1.png)
+![Details Page](static/img/demo-2.png)
+![Add Movies Page](static/img/demo-3.png)
+![Add Cast Page](static/img/demo-4.png)
